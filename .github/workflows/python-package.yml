@@ -79,12 +79,12 @@ jobs:
             make
             sudo make install
             cd
-      - name: Install dependencies
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         id: cache-venv
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip' # caching pip dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip uv
           uv venv
